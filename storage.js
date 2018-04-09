@@ -84,5 +84,32 @@ const orchid = {
 //   Next, place each object that you have defined into the appropriate database table.
 // Remember, I'm using the term table because we're building a database, 
 // but the collections are actually arrays, so I can use the push() method.
-HomeInventoryDatabase.crafts.push(vintageInkwell)
-HomeInventoryDatabase.furniture.push(writingDesk)
+HomeInventoryDatabase.crafts.push(elephantPaint, shofar, rhino, orchid)
+HomeInventoryDatabase.furniture.push(cedarChest, desk, shelf)
+HomeInventoryDatabase.electronics.push(soundSystem, polaroid, camera)
+
+// Function to add database to your local browser
+const saveDatabase = function (databaseObject, localStorageKey) {
+    /*
+        Convert the Object into a string.
+    */
+    const stringifiedDatabase = JSON.stringify(databaseObject)
+
+    /*
+        Create a key in local storage, and store the string
+        version of your inventory database as the value
+    */
+    localStorage.setItem(localStorageKey, stringifiedDatabase)
+}
+// Calls saveDataBase
+saveDatabase(HomeInventoryDatabase, "Home Inventory");
+
+
+// Access Data from local storage
+// const loadDatabase = function (localStorageKey) {
+//     // Get the string version of the database
+//     const databaseString = localStorage.getItem(localStorageKey)
+
+//     // Use JSON.parse() to convert the string back into an object
+//     return JSON.parse(databaseString)
+// }
